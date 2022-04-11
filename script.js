@@ -1,8 +1,8 @@
-let random = Math.floor(Math.random() * 752, 919) + 1;
+
 let btn = document.querySelector('#randomBtn');
 
 
-// let newOpt =
+
 
     function card() {
         let random = Math.floor(Math.random() * 752, 919) + 1;
@@ -42,3 +42,4 @@ btn.addEventListener('click', function () {
     cards()
     card()
 })
+

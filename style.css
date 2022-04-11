@@ -1,13 +1,25 @@
-
+*{
+    text-align: center;
+}
+.poster, .beverage{
+    width: 20vw;
+}
 #randomBtn {
-    background: blue;
-    width: 15%;
-    padding: 10px;
-    color: aliceblue;
-    border-radius: 5px;
+    background-color: green;
+    color: orange;
+    font-weight: bold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    width:20%;
+    box-shadow: inset 0 0 0 0 orange;
+    transition: ease-out 1s;
 }
 #randomBtn:hover{
-    background: yellowgreen;
-    color: black;
+    box-shadow: inset 500px 0 0 0 orange;
+    color: green;
     cursor: pointer;
 }

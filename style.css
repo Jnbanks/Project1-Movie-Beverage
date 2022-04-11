@@ -1,4 +1,20 @@
+<<<<<<< HEAD
 body {
     background-color: blanchedalmond;
 }
 
+=======
+
+#randomBtn {
+    background: blue;
+    width: 15%;
+    padding: 10px;
+    color: aliceblue;
+    border-radius: 5px;
+}
+#randomBtn:hover{
+    background: yellowgreen;
+    color: black;
+    cursor: pointer;
+}
+>>>>>>> bb9c392f1099def17a6c829b54fccd56bdd7fdbf

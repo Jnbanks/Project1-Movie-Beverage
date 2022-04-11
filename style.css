@@ -1,3 +1,13 @@
-body {
-    background-color: blanchedalmond;
+
+#randomBtn {
+    background: blue;
+    width: 15%;
+    padding: 10px;
+    color: aliceblue;
+    border-radius: 5px;
+}
+#randomBtn:hover{
+    background: yellowgreen;
+    color: black;
+    cursor: pointer;
 }

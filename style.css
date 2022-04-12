@@ -4,6 +4,9 @@
 .poster, .beverage{
     width: 20vw;
 }
+.main-con{
+    margin-top: 50px;
+}
 #randomBtn {
     background-color: green;
     color: orange;

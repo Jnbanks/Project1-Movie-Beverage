@@ -1,11 +1,21 @@
 
 let btn = document.querySelector('#randomBtn');
-
+let action = document.querySelector('#action');
+let adventure = document.querySelector('#adventure');
+let animation = document.querySelector('#animation');
+let comedy = document.querySelector('#comedy');
+let drama = document.querySelector('#drama');
+let fantasy = document.querySelector('#fantasy');
+let horror = document.querySelector('#horror');
+let romance = document.querySelector('#romance');
+let scienceFriction = document.querySelector('#science-friction');
+let thriller = document.querySelector('#thriller');
+let btn1 = document.querySelector('.btn2')
 
 
 
     function card() {
-        let random = Math.floor(Math.random() * 752, 919) + 1;
+        let random = Math.floor(Math.random() * 9000) + 1;
         let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
         fetch(movie)
             .then(function (response) {
@@ -18,7 +28,26 @@ let btn = document.querySelector('#randomBtn');
             .then(function (data) {
                 console.log(data)
                 document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
-                document.querySelector('.title').textContent = data.original_title;
+                document.querySelector('.title').textContent = data.title;
+                document.querySelector('.genre1').textContent = data.genres[0].name;
+                document.querySelector('.genre2').textContent = data.genres[1].name;
+             
+                if(data.genres[2]){
+                    document.querySelector('li .genre3').textContent = data.genres[2].name;
+                }else {
+                    document.querySelector('li .genre3').style.display = 'none'
+                }
+                if(!data.genres[3]){
+                    document.querySelector('li .genre4').style.display = 'none'
+                }else {
+                    document.querySelector('li .genre4').textContent = data.genres[3].name;
+                }
+                if(!data.genres[4]){
+                    document.querySelector('li .genre5').style.display = 'none'
+                }else {
+                    document.querySelector('li .genre5').textContent = data.genres[4].name;
+                }
+    
             })
     }
 
@@ -118,4 +147,42 @@ btn.addEventListener('click', function () {
     cards()
     card()
 })
+
+
+
+function pickGenres() {
+    let random = Math.floor(Math.random() * 9000) + 1;
+    let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
+    fetch(movie)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 404) {
+                pickGenres()
+          }
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+            for (let i = 0; i < 5; i++) {
+                let element = data.genres[i];
+                if(action.value === 'action' && element.id == 28 ){
+                    document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
+                    document.querySelector('.title').textContent = data.title;
+                    document.querySelector('.genre1').textContent = data.genres[0].name;
+                    document.querySelector('.genre2').textContent = data.genres[1].name;
+           }else if (element.id !== 28) {
+                    break;
+           }
+                 return pickGenres()
+            }
+          
+
+        })
+}
+btn1.addEventListener('click', function (){
+    pickGenres()
+   
+    
+})
+
 

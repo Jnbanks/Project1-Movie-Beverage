@@ -6,7 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="style.css">
     <title>Boozy Movie</title>
@@ -19,19 +22,51 @@
     <h3>click the random button to get movie and drink suggestion</h3>
     <button id="randomBtn">random</button> <br>
     <main class="grid-x grid-padding-x main-con">
-        <div class="movie-card cell small-6">
+        
+        
+        <div class="vertical menu small-2">    
+
+            <input id="action" type="checkbox">action</input>
+            <input id="adventure" type="checkbox">adventure</input>
+            <input id="anim" type="checkbox">animation</input>
+            <input id="comedy" type="checkbox">comedy</input>
+            <input id="fantasy" type="checkbox">fantasy</input>
+            <input id="drama" type="checkbox">drama</input>
+            <input id="horror" type="checkbox">horror</input>
+            <input id="romance" type="checkbox">romance</input>
+            <input id="sciencefic" type="checkbox">science fiction</input>
+            <input id="thriller" type="checkbox">thriller</input>
+        
+            <input id="submit" type="submit" value="A submit button"></input>
+            <a href="#">Two</a>
+            <a href="#">Three</a>
+            <a href="#">Four</a>
+        </div>
+        <div class="movie-card cell small-4">
             <div class="card">
                <div class="card-section">
                 <img class="poster">
                </div>
                 <div class="card-section">
                   <h4 class="title"></h4>
-                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+
+                  <ul class="vertical menu accordion-menu genres" data-accordion-menu>
+                    <li>
+                      <a href="#">genres</a>
+                      <ul class="menu vertical nested">
+                        <li><a href="#" class="genre1"></a></li>
+                        <li><a href="#" class="genre2"></a></li>
+                        <li><a href="#" class="genre3"></a></li>
+                        <li><a href="#" class="genre4"></a></li>
+                        <li><a href="#" class="genre5"></a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
            
         </div>
-        <div class="drink-card cell small-6">
+        <div class="drink-card cell small-4">
             <div class="card">
                 <div class="card-section">
                   <img class="beverage">

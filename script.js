@@ -1,8 +1,23 @@
 
 let btn = document.querySelector('#randomBtn');
+let submit = document.querySelector('.submit');
+var selection = [];
+var action = document.querySelector('.action');
+var adventure = document.querySelector('.adventure');
+var anim = document.querySelector('.anim');
+var comedy = document.querySelector('.comedy');
+var fantasy = document.querySelector('.fantasy');
+var drama = document.querySelector('.drama');
+var horror =document.querySelector('.horror');
+var romance = document.querySelector('.romance');
+var sciencefic = document.querySelector('.sciencefic');
+var thriller = document.querySelector('.thriller');
 
 
 
+
+
+console.log(action.checked);
 
     function card() {
         let random = Math.floor(Math.random() * 752, 919) + 1;
@@ -18,7 +33,19 @@ let btn = document.querySelector('#randomBtn');
             .then(function (data) {
                 console.log(data)
                 document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
-                document.querySelector('.title').textContent = data.original_title;
+                document.querySelector('.title').textContent = data.title;
+                document.querySelector('.genre1').textContent = data.genres[0].name;
+                document.querySelector('.genre2').textContent = data.genres[1].name;
+                if (data.genres[2]) {
+                    document.querySelector('li .genre3').style.display = "none";
+                } else {document.querySelector('li .genre3').textContent = data.genres[2].name
+                }
+                if (!data.genres[3]) {
+                    document.querySelector('li .genre4').style.display = "none";
+                } else {document.querySelector('li .genre4').textContent = data.genres[3].name}
+                if (!data.genres[4]) {
+                    document.querySelector('li .genre5').style.display = "none";
+                } else {document.querySelector('li .genre5').textContent = data.genres[4].name}
             })
     }
 
@@ -114,8 +141,110 @@ function cards() {
         })
 }
 
+
+
 btn.addEventListener('click', function () {
     cards()
     card()
 })
+        $( function() {
+          $( "#accordion" ).accordion();
+        } );
 
+submit.addEventListener('click', function () {
+    buildSelection();
+    
+    console.log(document.querySelector('.action').checked);
+})
+
+
+
+
+/* 
+we want to select an action film
+if action box is checked && submit is clicked...
+pull a random film
+check if it has the genre action joined to it
+if yes, display
+if no, grab a new film/run the function again
+]
+
+Action
+Adventure
+Animation
+Comedy
+Fantasy
+Drama
+Horror
+Romance
+Science Fiction
+Thriller
+
+*/
+
+function buildSelection () {
+    if (action) {
+        selection.push("Action")
+    }
+    if (adventure) {
+        selection.push("Adventure")
+    }
+    if (anim) {
+        selection.push("Animation")
+    }
+    if (comedy) {
+        selection.push("Comedy")
+    }
+    if (drama) {
+        selection.push("Drama")
+    }
+    if (fantasy) {
+        selection.push("Fantasy")
+    }
+    if (horror) {
+        selection.push("Horror")
+    }
+    if (romance) {
+        selection.push("Romance")
+    }
+    if (sciencefic) {
+        selection.push("Science Fiction")
+    }
+    if (thriller) {
+        selection.push("Thriller")
+    }
+}
+
+
+// function genre () {
+//     let action = querySelector('.action');
+//     if (action) {
+//         let random = Math.floor(Math.random() * 752, 919) + 1;
+//         let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
+//         fetch(movie)
+//             .then(function (response) {
+//                 console.log(response)
+//                 if (response.status === 404) {
+//                     card()
+//               }
+//                 return response.json()
+//             })
+//             .then(function (data) {
+//                 console.log(data)
+//                 document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
+//                 document.querySelector('.title').textContent = data.title;
+//                 document.querySelector('.genre1').textContent = data.genres[0].name;
+//                 document.querySelector('.genre2').textContent = data.genres[1].name;
+//                 if (data.genres[2]) {
+//                     document.querySelector('li .genre3').style.display = "none";
+//                 } else {document.querySelector('li .genre3').textContent = data.genres[2].name
+//                 }
+//                 if (!data.genres[3]) {
+//                     document.querySelector('li .genre4').style.display = "none";
+//                 } else {document.querySelector('li .genre4').textContent = data.genres[3].name}
+//                 if (!data.genres[4]) {
+//                     document.querySelector('li .genre5').style.display = "none";
+//                 } else {document.querySelector('li .genre5').textContent = data.genres[4].name}
+//             })
+//     }
+// }

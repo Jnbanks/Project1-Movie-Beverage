@@ -1,10 +1,5 @@
 
-<<<<<<< HEAD
-let random = Math.floor(Math.random()*752,919) + 1;
-let btn = document.querySelector(#randomBtn)
-=======
 let btn = document.querySelector('#randomBtn');
->>>>>>> bb9c392f1099def17a6c829b54fccd56bdd7fdbf
 
 
 

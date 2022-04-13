@@ -33,9 +33,9 @@ function card() {
             document.querySelector('.genre1').textContent = data.genres[0].name;
             document.querySelector('.genre2').textContent = data.genres[1].name;
 
-         
+
             document.querySelector('.genre4').textContent = data.genres[3].name;
-           
+
             document.querySelector('.genre5').textContent = data.genres[4].name;
 
         })
@@ -137,17 +137,17 @@ btn.addEventListener('click', function (event) {
     event.preventDefault()
     let age = document.querySelector('#age').value;
     console.log(age)
-    if(age > 2001){
+    if (age > 2001) {
         btn.disabled = true
         window.location.href = 'https://www.disneyplus.com'
-    }else if(age === ''){
+    } else if (age === '') {
         btn.disabled = true
     } else {
-    cards()
-    card()
+        cards()
+        card()
     }
     btn.disabled = false
-    document.querySelector('#age').value ='';
+    //document.querySelector('#age').value ='';
 
 })
 
@@ -167,38 +167,38 @@ function pickGenres() {
         .then(function (data) {
             console.log(data)
             for (let i = 0; i < 6; i++) {
-            let element = data.genres[i];
+                let element = data.genres[i];
                 console.log(data.genres[i].name);
-                if (action.value === 'action' && element.name !== 'action') {
+                if (element.name !== 'action') {
 
-                      return pickGenres()
-                   
+                    return pickGenres()
+
                 } else if (action.value === element.name) {
                     document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
                     document.querySelector('.title').textContent = data.title;
-                   document.querySelector('.genre1').textContent = data.genres[0].name;
-                  document.querySelector('.genre2').textContent = data.genres[1].name;
+                    document.querySelector('.genre1').textContent = data.genres[0].name;
+                    document.querySelector('.genre2').textContent = data.genres[1].name;
 
 
-                 }
-             
+                }
+
 
             }
         })
-    }
-    btn1.addEventListener('click', function (event) {
-        event.preventDefault()
-        let age = document.querySelector('#age').value;
+}
+btn1.addEventListener('click', function (event) {
+    event.preventDefault()
+    let age = document.querySelector('#age').value;
     console.log(age)
-    if(age > 2001 ){
+    if (age > 2001) {
         btn.disabled = true
         window.location.href = 'https://www.disneyplus.com'
-    }else if(age === ''){
+    } else if (age === '') {
         btn.disabled = true
     } else {
         pickGenres()
     }
     btn.disabled = false
-    document.querySelector('#age').value ='';
+    //document.querySelector('#age').value ='';
 
-    })
+})

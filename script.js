@@ -1,23 +1,12 @@
+
 let btn = document.querySelector('#randomBtn');
-let action = document.querySelector('#action');
-let adventure = document.querySelector('#adventure');
-let animation = document.querySelector('#animation');
-let comedy = document.querySelector('#comedy');
-let drama = document.querySelector('#drama');
-let fantasy = document.querySelector('#fantasy');
-let horror = document.querySelector('#horror');
-let romance = document.querySelector('#romance');
-let scienceFriction = document.querySelector('#science-friction');
-let thriller = document.querySelector('#thriller');
-let btn1 = document.querySelector('.btn2');
-let age = document.querySelector('#age');
 
 
 
 
 function card() {
-    let random = Math.floor(Math.random() * 9000) + 1;
-    let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US&append_to_response=videos`
+    let random = Math.floor(Math.random() * 752, 919) + 1;
+    let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
     fetch(movie)
         .then(function (response) {
             console.log(response)

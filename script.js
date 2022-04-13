@@ -1,5 +1,16 @@
 
 let btn = document.querySelector('#randomBtn');
+let btn1 = document.querySelector('.btn2')
+var action = document.querySelector('#action');
+var adventure = document.querySelector('#adventure');
+var anim = document.querySelector('#animation');
+var comedy = document.querySelector('#comedy');
+var fantasy = document.querySelector('#fantasy');
+var drama = document.querySelector('#drama');
+var horror =document.querySelector('#horror');
+var romance = document.querySelector('#romance');
+var sciencefic = document.querySelector('#science-fiction');
+var thriller = document.querySelector('#thriller');
 
 
 
@@ -18,7 +29,15 @@ function card() {
         .then(function (data) {
             console.log(data)
             document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
-            document.querySelector('.title').textContent = data.original_title;
+            document.querySelector('.title').textContent = data.title;
+            document.querySelector('.genre1').textContent = data.genres[0].name;
+            document.querySelector('.genre2').textContent = data.genres[1].name;
+
+
+            document.querySelector('.genre4').textContent = data.genres[3].name;
+
+            document.querySelector('.genre5').textContent = data.genres[4].name;
+
         })
 }
 
@@ -114,8 +133,72 @@ function cards() {
         })
 }
 
-btn.addEventListener('click', function () {
-    cards()
-    card()
+btn.addEventListener('click', function (event) {
+    event.preventDefault()
+    let age = document.querySelector('#age').value;
+    console.log(age)
+    if (age > 2001) {
+        btn.disabled = true
+        window.location.href = 'https://www.disneyplus.com'
+    } else if (age === '') {
+        btn.disabled = true
+    } else {
+        cards()
+        card()
+    }
+    btn.disabled = false
+    //document.querySelector('#age').value ='';
+
 })
 
+
+
+function pickGenres() {
+    let random = Math.floor(Math.random() * 9000) + 1;
+    let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
+    fetch(movie)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 404) {
+                pickGenres()
+            }
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+            for (let i = 0; i < 6; i++) {
+                let element = data.genres[i];
+                console.log(data.genres[i].name);
+                if (element.name !== 'action') {
+
+                    return pickGenres()
+
+                } else if (action.value === element.name) {
+                    document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
+                    document.querySelector('.title').textContent = data.title;
+                    document.querySelector('.genre1').textContent = data.genres[0].name;
+                    document.querySelector('.genre2').textContent = data.genres[1].name;
+
+
+                }
+
+
+            }
+        })
+}
+btn1.addEventListener('click', function (event) {
+    event.preventDefault()
+    let age = document.querySelector('#age').value;
+    console.log(age)
+    if (age > 2001) {
+        btn.disabled = true
+        window.location.href = 'https://www.disneyplus.com'
+    } else if (age === '') {
+        btn.disabled = true
+    } else {
+        pickGenres()
+    }
+    btn.disabled = false
+    //document.querySelector('#age').value ='';
+
+})

@@ -1,6 +1,31 @@
+
+:root{
+    --highlight: rgb(241, 120, 221);
+    --cardBackground: rgb(20, 204, 143);
+}
+
 *{
     text-align: center;
 }
+
+body {
+    background-color: plum;
+}
+
+.movie-card{
+    background-color: var(--cardBackground);
+}
+
+.drink-card{
+    background-color: var(--cardBackground);
+}
+
+.card{
+    background-color: var(--cardBackground);
+    border: 0ch;
+}
+
+
 .poster, .beverage{
     width: 20vw;
 }
@@ -8,8 +33,10 @@
     margin-top: 50px;
 }
 #randomBtn {
-    background-color: green;
-    color: orange;
+
+    background-color: blueviolet;
+    color: var(--highlight);
+
     font-weight: bold;
     padding: 15px 32px;
     text-align: center;
@@ -18,12 +45,14 @@
     border-radius: 7px;
     border: none;
     width:20%;
-    box-shadow: inset 0 0 0 0 orange;
+
+    box-shadow: inset 0 0 0 0 var(--highlight);
     transition: ease-out 1s;
 }
 #randomBtn:hover{
-    box-shadow: inset 500px 0 0 0 orange;
-    color: green;
+    box-shadow: inset 500px 0 0 0 var(--highlight);
+    color: blueviolet;
+
     cursor: pointer;
 }
 

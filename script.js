@@ -1,5 +1,16 @@
 
 let btn = document.querySelector('#randomBtn');
+let btn1 = document.querySelector('.btn2')
+var action = document.querySelector('#action');
+var adventure = document.querySelector('#adventure');
+var anim = document.querySelector('#animation');
+var comedy = document.querySelector('#comedy');
+var fantasy = document.querySelector('#fantasy');
+var drama = document.querySelector('#drama');
+var horror =document.querySelector('#horror');
+var romance = document.querySelector('#romance');
+var sciencefic = document.querySelector('#science-fiction');
+var thriller = document.querySelector('#thriller');
 
 
 

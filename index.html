@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Boozy Movie</title>
+</head>
+
+<body>
+    <header>
+        <h1>Boozy Movies</h1>
+    </header>
+    <h3>click the random button to get movie and drink suggestion</h3>
+    <button id="randomBtn">random</button> <br>
+    <main class="grid-x grid-padding-x main-con">
+        <form class='cell small-2'>
+            <ul class="vertical menu accordion-menu" data-accordion-menu>
+                <li>
+                    <a href="#">Genres</a>
+                    <ul class="menu vertical nested">
+                        <li><input type="checkbox" name="action" id="action" class="gen" value="action">action</li>
+                        <li><input type="checkbox" name="adventure" id="adventure" class="gen" value="adventure">adventure</li>
+                        <li><input type="checkbox" name="animation" id="animation" class="gen" value="animation">animation</li>
+                        <li><input type="checkbox" name="comedy" id="comedy" class="gen" value="comedy">comedy</li>
+                        <li><input type="checkbox" name="drama" id="drama" class="gen" value="drama">drama</li>
+                        <li><input type="checkbox" name="fantasy" id="fantasy" class="gen" value="fantasy">fantasy</li>
+                        <li><input type="checkbox" name="horror" id="horror" class="gen" value="horror">horror</li>
+                        <li><input type="checkbox" name="romance" id="romance" class="gen" value="romance">romance</li>
+                        <li><input type="checkbox" name="science-friction" id="science-friction" class="gen"
+                                value="science-friction">science-friction</li>
+                        <li><input type="checkbox" name="thriller" id="thriller" class="genres" value="thriller">thriller</li>
+                    </ul>
+                </li>
+                
+            </ul>
+
+            <label for="age">Your Age</label>
+            <input type="text" name="age" id="age" placeholder="Enter Birth year">
+            <input type="button" class="btn2" value="submit">
+        </form>
+        <div class="movie-card cell small-5">
+            <div class="card">
+                <div class="card-section">
+                    <img class="poster">
+                </div>
+                <div class="card-section">
+                    <h4 class="title"></h4>
+                    <ul class="vertical menu accordion-menu genres" data-accordion-menu>
+                        <li>
+                            <a href="#">genres</a>
+                            <ul class="menu vertical nested genre">
+                                <li class="genre1"></li>
+                                <li class="genre2"></li>
+                                <li class="genre3"></li>
+                                <li class="genre4"></li>
+                                <li class="genre5"></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="drink-card cell small-5">
+            <div class="card">
+                <div class="card-section">
+                    <img class="beverage">
+                </div>
+
+                <div class="card-section">
+                    <h4 class="name-drink"></h4>
+                    <ul class="vertical menu accordion-menu ingredients" data-accordion-menu>
+                        <li>
+                            <a href="#">ingredients</a>
+                            <ul class="menu vertical nested">
+                                <li><a href="#" class="ingredient1"></a></li>
+                                <li><a href="#" class="ingredient2"></a></li>
+                                <li><a href="#" class="ingredient3"></a></li>
+                                <li><a href="#" class="ingredient4"></a></li>
+                                <li><a href="#" class="ingredient5"></a></li>
+                                <li><a href="#" class="ingredient6"></a></li>
+                                <li><a href="#" class="ingredient7"></a></li>
+                                <li><a href="#" class="ingredient8"></a></li>
+                                <li><a href="#" class="ingredient9"></a></li>
+                                <li><a href="#" class="ingredient10"></a></li>
+                                <li><a href="#" class="ingredient11"></a></li>
+                                <li><a href="#" class="ingredient12"></a></li>
+                                <li><a href="#" class="ingredient13"></a></li>
+                                <li><a href="#" class="ingredient14"></a></li>
+                                <li><a href="#" class="ingredient15"></a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

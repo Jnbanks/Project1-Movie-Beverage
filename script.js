@@ -1,5 +1,5 @@
 let btn = document.querySelector('#randomBtn');
-let btn1 = document.querySelector('.btn2')
+let btn1 = document.querySelector('.btn2');
 var action = document.querySelector('#action');
 var adventure = document.querySelector('#adventure');
 var comedy = document.querySelector('#comedy');
@@ -30,12 +30,8 @@ function card() {
             document.querySelector('.title').textContent = data.title;
             document.querySelector('.genre1').textContent = data.genres[0].name;
             document.querySelector('.genre2').textContent = data.genres[1].name;
-
-
             document.querySelector('.genre4').textContent = data.genres[3].name;
-
             document.querySelector('.genre5').textContent = data.genres[4].name;
-
         })
 }
 

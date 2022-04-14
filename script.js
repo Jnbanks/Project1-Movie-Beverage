@@ -220,6 +220,7 @@ btn1.addEventListener('click', function (event) {
         pickGenres()
     }
     btn1.disabled = false
+    
     //document.querySelector('#age').value ='';
 
 })

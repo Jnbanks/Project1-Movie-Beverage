@@ -20,5 +20,5 @@ Below You can find some screenshots of the application in (Lights, Camera,) Acti
 Starting with the screen that will greet users when they open the app, you can also see what it looks like to use the random button and searches definined by genre!
 
 ![screenshot](./assets/Start.png)
-![screenshot](./assets/Randome.png)
-![screenshot](./assetsGenreSearch.png)
+![screenshot](./assets/Random.png)
+![screenshot](./assets/GenreSearch.png)

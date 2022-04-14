@@ -5,24 +5,74 @@
 }
 
 *{
+    font-family: 'Limelight', cursive, sans-serif;
     text-align: center;
 }
 
 body {
+    font-family: 'Limelight', cursive, sans-serif;
     background-color: plum;
+}
+h1, h3, h4, h5{
+    font-family: 'Limelight', cursive, sans-serif;
+}
+
+li {
+    font-size: 1.5rem;
+}
+header {
+    background: rgb(128, 72, 128);
+    padding: 10px 0;
+    color: rgb(255, 255, 255);
+}
+img{
+    border-radius: 5%;
+    border: 5px solid #F3F1F5;
+}
+
+.genre-drop{
+    border: 2px double black;
+    border-radius: 5px;
+    background: #F3F1F5;
+}
+.big {
+    font-size: 4rem;
+}
+.short {
+    width: 70%;
+    margin: 5px auto;
+    background: rgb(245, 97, 97);
+}
+.animate__animated.animate__flash{
+    --animate-duration: 1.5s;
+   
 }
 
 .movie-card{
-    background-color: var(--cardBackground);
+    display: none;
+    background-color: rgb(128, 72, 128);
+    border: 5px double black;
 }
 
 .drink-card{
-    background-color: var(--cardBackground);
+    display: none;
+    background-color: rgb(128, 72, 128);;
 }
 
-.card{
-    background-color: var(--cardBackground);
-    border: 0ch;
+.border1,.border2{
+    background-color: rgb(128, 72, 128);;
+    border: 5px double black
+}
+.border1 {
+    border-radius: 20px 0 0 20px ;
+    border-right: none;
+}
+.border2{
+    border-radius: 0 20px 20px 0;
+    border-left: none;
+}
+.title, .name-drink, .genre, .ingredient {
+    color: rgb(255, 255, 255);
 }
 
 
@@ -31,6 +81,19 @@ body {
 }
 .main-con{
     margin-top: 50px;
+}
+.empty {
+    text-align: center;
+    width: 100%;
+}
+.btn2{
+    background-color: blueviolet;
+    color: var(--highlight);
+    width: 50%;
+    box-shadow: inset 0 0 0 0 var(--highlight);
+    transition: ease-out 1s;
+    border-radius: 7px;
+    padding: 5px 0;
 }
 #randomBtn {
 
@@ -43,16 +106,15 @@ body {
     text-decoration: none;
     display: inline-block;
     border-radius: 7px;
-    border: none;
+    border: 3px solid black;
     width:20%;
 
     box-shadow: inset 0 0 0 0 var(--highlight);
     transition: ease-out 1s;
 }
-#randomBtn:hover{
+#randomBtn:hover, .btn2:hover{
     box-shadow: inset 500px 0 0 0 var(--highlight);
     color: blueviolet;
-
     cursor: pointer;
 }
 

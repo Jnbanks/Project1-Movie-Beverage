@@ -1,22 +1,18 @@
-
 let btn = document.querySelector('#randomBtn');
 let btn1 = document.querySelector('.btn2')
 var action = document.querySelector('#action');
 var adventure = document.querySelector('#adventure');
-var anim = document.querySelector('#animation');
 var comedy = document.querySelector('#comedy');
-var fantasy = document.querySelector('#fantasy');
 var drama = document.querySelector('#drama');
-var horror =document.querySelector('#horror');
-var romance = document.querySelector('#romance');
-var sciencefic = document.querySelector('#science-fiction');
-var thriller = document.querySelector('#thriller');
+let movieCard = document.querySelector('.movie-card');
+let drinkCard = document.querySelector('.drink-card');
+let empty = document.querySelector('.empty');
 
 
 
 
 function card() {
-    let random = Math.floor(Math.random() * 752, 919) + 1;
+    let random = Math.floor(Math.random() * 9000) + 1;
     let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
     fetch(movie)
         .then(function (response) {
@@ -28,6 +24,8 @@ function card() {
         })
         .then(function (data) {
             console.log(data)
+            empty.style.display = 'none'
+            movieCard.style.display = 'contents';
             document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
             document.querySelector('.title').textContent = data.title;
             document.querySelector('.genre1').textContent = data.genres[0].name;
@@ -53,6 +51,7 @@ function cards() {
         })
         .then(function (data) {
             console.log(data)
+            drinkCard.style.display = 'contents';
             document.querySelector('.beverage').setAttribute('src', data.drinks[0].strDrinkThumb)
             document.querySelector('.name-drink').textContent = data.drinks[0].strDrink;
             if (data.drinks[0].strIngredient1 === null) {
@@ -152,10 +151,34 @@ btn.addEventListener('click', function (event) {
 })
 
 
-
 function pickGenres() {
-    let random = Math.floor(Math.random() * 9000) + 1;
-    let movie = `https://api.themoviedb.org/3/movie/${random}?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
+    let movieId;
+    console.log(action.checked)
+    if(action.checked && drama.checked && comedy.checked && adventure.checked){
+        movieId = 98;
+    } else if (drama.checked && comedy.checked){
+        movieId = 880;
+    } else if (action.checked && comedy.checked){
+        movieId = 8693;
+    } else if (adventure.checked && comedy.checked){
+        movieId = 332;
+    } else if (drama.checked && action.checked){
+        movieId = 2330;
+    } else if ( drama.checked && adventure.checked){
+        movieId = 1865;
+    } else if (adventure.checked && action.checked){
+        movieId = 1733;
+    }else if (action.checked) {
+        movieId = 7555;
+    } else if(drama.checked){
+        movieId = 5156;
+    }else if (comedy.checked) {
+        movieId = 51509;
+    } else if (adventure.checked){
+        movieId = 5764;
+    }
+
+    let movie = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=e279ef38d7322234f5dbce86698431bb&language=US$region=US`
     fetch(movie)
         .then(function (response) {
             console.log(response)
@@ -166,39 +189,41 @@ function pickGenres() {
         })
         .then(function (data) {
             console.log(data)
-            for (let i = 0; i < 6; i++) {
-                let element = data.genres[i];
-                console.log(data.genres[i].name);
-                if (element.name !== 'action') {
-
-                    return pickGenres()
-
-                } else if (action.value === element.name) {
-                    document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`);
-                    document.querySelector('.title').textContent = data.title;
-                    document.querySelector('.genre1').textContent = data.genres[0].name;
-                    document.querySelector('.genre2').textContent = data.genres[1].name;
+            empty.style.display = 'none'
+            movieCard.style.display = 'contents'
+            let random = Math.floor(Math.random() * 20);
+            document.querySelector('.poster').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.results[random].poster_path}`);
+            document.querySelector('.title').textContent = data.results[random].title;
+            document.querySelector('.topli').style.display = 'none'
 
 
-                }
 
-
-            }
         })
+
+
+
+
 }
+
+
+
 btn1.addEventListener('click', function (event) {
     event.preventDefault()
     let age = document.querySelector('#age').value;
     console.log(age)
     if (age > 2001) {
-        btn.disabled = true
+        btn1.disabled = true
         window.location.href = 'https://www.disneyplus.com'
     } else if (age === '') {
-        btn.disabled = true
-    } else {
+        btn1.disabled = true
+    } else if (!action.checked && !drama.checked && !adventure.checked && !comedy.checked){
+       btn1.disabled = true
+    }else{
+
+        cards()
         pickGenres()
     }
-    btn.disabled = false
+    btn1.disabled = false
     //document.querySelector('#age').value ='';
 
 })
